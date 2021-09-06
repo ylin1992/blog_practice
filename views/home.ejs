@@ -1,0 +1,13 @@
+<%-include("partial/header")-%>
+<h1><%=heading%></h1>
+<p><%=displayedContent%></p>
+
+  <% posts.forEach(function (post) { %>
+    <%if (post.content.length >= 100) {%>
+      <% post.content = post.content.slice(0,100) + "...";%>
+    <%}%>
+    <h1><%=post.title%></h1>
+    <p><%=post.content%> <a href=<%="/posts/" + post.kebabCaseTitle%>>Read More</a></p>
+  <% }) %>
+
+<%-include("partial/footer")-%>
